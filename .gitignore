@@ -3,5 +3,6 @@ backend/.env
 frontend/.env
 backend/node_modules
 frontend/node_modules
+backend/data
 backend/data/resume.pdf
 # frontend/src/config/data.js

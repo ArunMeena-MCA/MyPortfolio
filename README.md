@@ -1,4 +1,4 @@
-# Portfolio Website — Arun (Asus)
+# Portfolio Website — Arun
 
 A futuristic, animated, fully config-driven portfolio. Frontend: **React + Vite + Tailwind CSS + Framer Motion**.
 Backend: **Node.js + Express + SQLite (better-sqlite3)** for visitor analytics and contact messages.
