@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Education.jsx";
 import LeetcodeProfile from "./LeetcodeProfile.jsx";
-import GfgProfile from "./Gfgprofile.jsx";
+import GfgProfile from "./GfgProfile.jsx";
 
 
 export default function CodingProfile() {
