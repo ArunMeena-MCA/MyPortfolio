@@ -17,7 +17,7 @@ export default function Education() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="glass relative rounded-xl p-6"
           >
-            <span className="absolute -left-[41px] top-8 h-3 w-3 rounded-full bg-cyan-glow shadow-glow" />
+            <span className="absolute -left-[39.5px] top-8 h-3 w-3 rounded-full bg-cyan-glow shadow-glow" />
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="font-display text-lg font-semibold text-ink">{edu.degree}</h3>
               <span className="font-mono text-xs text-muted">{edu.duration}</span>

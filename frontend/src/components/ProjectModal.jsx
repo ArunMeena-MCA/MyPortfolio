@@ -19,12 +19,12 @@ export default function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className="glass max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl"
       >
-        <div className="relative h-56 w-full bg-panel">
+        <div className="relative h-72 w-full bg-panel">
           <img
             src={project.thumbnail}
             alt={project.title}
             onError={(e) => (e.target.style.display = "none")}
-            className="h-full w-full object-cover"
+            className="h-full w-full"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-void via-void/20 to-transparent" />
           <button

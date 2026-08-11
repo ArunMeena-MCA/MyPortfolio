@@ -13,7 +13,7 @@ export const personal_details = {
   location: "Bengaluru, India",
   email: "Arunmeena.code@gmail.com",
   phone: "+91 8719838082",
-  avatar: "/avatar.jpg", // place an image at frontend/public/avatar.jpg
+  avatar: "../public/Avatar.jpeg", // place an image at frontend/public/avatar.png
   resumeAvailable: true, // set false to hide the "View Resume" button
 };
 
@@ -57,9 +57,10 @@ export const educational_details = [
   },
   {
     id: "edu2",
-    degree: "Bachelor of Science, Computer Science",
-    institution: "Your Undergrad College Name",
+    degree: "Bachelor of Computer Application (BCA)",
+    institution: "School of Computer Science and IT, DAVV, Indore",
     duration: "2020 — 2023",
+    score: "CGPA: 7.29/10",
     highlight: "",
     description: "Built a strong foundation in data structures, algorithms, and software engineering fundamentals.",
   },
@@ -70,63 +71,148 @@ export const professional = [
     id: "exp1",
     role: "Engineering Trainee - Internship",
     company: "OLA Electric — Battery Innovation Center",
-    duration: "May 2024 — Aug 2024",
+    duration: "Jan 2026 — Aug 2026",
     location: "Bengaluru, India",
     description:
-      "Worked on data pipelines and ML models for battery diagnostics, contributing to defect-detection tooling used by the innovation team.",
+      "Worked on data automation pipelines, web applications, Machine learning models and multi-agent system to reduce manual efforts and errors in battery R&D operations.",
     highlights: [
-      "Built an automated data ingestion & cleaning pipeline for sensor + CT-scan data",
-      "Prototyped a YOLO-based detection model for identifying battery defects",
-      "Collaborated with hardware engineers to validate model output against real failures",
+      "Built an automated data ingestion and monitoring pipeline, reduced processing time by 75%.",
+      "Developed a YOLO-based defect detection system for battery cell CT scans, achieving 87–92% accuracy.",
+      "Built multi-agent system to analyze R&D reports and assess patentability scope.",
     ],
     tech: ["Python", "Django", "Node.js", "React.js", "PostgreSQL", "Machine Learning", "Redis", "Celery", "YOLO", "LLMs", ],
   },
 ];
 
+// -----------------------------------------------------------------------------
+// PROJECTS
+// Sourced from Arun's resumes and de-duplicated (the same project appeared
+// across multiple resume versions in some cases). github/liveLink are left
+// blank where no confirmed URL was available in the resumes — add real links
+// any time; the Live Demo / View Code buttons appear automatically once a
+// non-empty URL is set.
+// -----------------------------------------------------------------------------
 export const projects = [
   {
     id: "proj1",
-    title: "CT-Scan Defect Detection (YOLO)",
-    thumbnail: "/projects/defect-detection.jpg",
-    shortDescription: "Real-time defect detection on battery CT scans using a fine-tuned YOLO model.",
+    title: "Patent Scope Analyzer (In Progress)",
+    thumbnail: "/projects/patent-analyzer.png",
+    shortDescription:
+      "Multi-agent system that analyzes R&D reports and assesses patentability against existing filings.",
     fullDescription:
-      "A computer-vision pipeline that ingests CT-scan imagery of battery cells, preprocesses and augments the data, and runs a fine-tuned YOLOv8 model to flag structural defects in real time. Includes an annotation-review dashboard and a confidence-based alerting system for quality engineers.",
-    tech: ["Python", "YOLOv8", "OpenCV", "FastAPI", "React"],
-    github: "https://github.com/yourusername/ct-defect-detection",
-    liveLink: "", // leave empty string if not deployed — the Live Demo button will be hidden automatically
-    images: ["/projects/defect-detection.jpg"],
-    role: "Solo project",
-    duration: "3 months",
+      "A multi-agent system, currently in progress, that analyzes R&D reports to assess patentability scope — identifying novel, already-filed, and improvement-ready candidates. A summarization agent condenses lengthy R&D reports before downstream analysis, backed by a structured prior-art dataset scraped and cleaned from four major patent databases including USPTO and Lens. A planned vector-embedding similarity search will retrieve relevant prior art as context, feeding a final LLM agent that synthesizes the report summary, extracted patentable elements, and similar patents into a patentability readiness score.",
+    tech: ["Python", "LLM Agents", "Vector Embeddings", "NLP"],
+    github: "",
+    liveLink: "",
+    images: ["/projects/patent-analyzer.png"],
   },
   {
     id: "proj2",
-    title: "Data Automation Pipeline",
-    thumbnail: "/projects/data-pipeline.jpg",
-    shortDescription: "Scheduled ETL pipeline that automates ingestion, cleaning, and reporting.",
+    title: "Cell Defect Detection — CT Scan Defect Analysis System",
+    thumbnail: "/projects/defect-detection.png",
+    shortDescription: "YOLO-based pipeline that detects manufacturing defects in battery cell CT scans in real time.",
     fullDescription:
-      "An end-to-end automation pipeline that pulls raw data from multiple sources on a schedule, cleans and normalizes it, and produces reporting-ready tables. Built with a Celery-based distributed task queue to parallelize heavy transforms across multiple workers, with Redis as the broker and result backend.",
-    tech: ["Python", "Celery", "Redis", "PostgreSQL", "Docker"],
-    github: "https://github.com/yourusername/data-pipeline",
+      "An automated defect-detection pipeline that processes CT-scan videos by breaking them into frames and analyzing each with custom-trained YOLO models. Trained on 2,000+ defect images with synthetic data augmentation, reaching 87–92% detection accuracy across defect types. Region segmentation with intersection-based filtering eliminates false positives outside inspection zones, a WebSocket-based streaming system surfaces only unique defects per frame in real time, and a React interface backed by a Django API visualizes live defect streams and per-frame results.",
+    tech: ["Python", "Django", "React.js", "YOLO", "WebSockets", "Computer Vision"],
+    github: "",
     liveLink: "",
-    images: ["/projects/data-pipeline.jpg"],
-    role: "Solo project",
-    duration: "2 months",
+    images: ["/projects/defect-detection.png"],
   },
   {
     id: "proj3",
-    title: "Patent Scope Analyzer",
-    thumbnail: "/projects/patent-analyzer.jpg",
-    shortDescription: "Multi-agent system that analyzes patent claims and surfaces prior-art overlap.",
+    title: "Cell Test Pipeline — Lab Data Processing & Monitoring System",
+    thumbnail: "/projects/CTP_1.png",
+    shortDescription: "Distributed pipeline automating ingestion and monitoring of lithium-ion cell testing data at scale.",
     fullDescription:
-      "A multi-agent LLM system where specialized agents parse patent claims, search for related prior art, and summarize scope overlap for a human reviewer. Agents communicate through a shared task graph, with a coordinator agent responsible for merging findings into a final report.",
-    tech: ["Python", "LangChain", "MySQL", "React", "Tailwind CSS"],
-    github: "https://github.com/yourusername/patent-scope-analyzer",
-    liveLink: "https://patent-analyzer-demo.example.com",
-    images: ["/projects/patent-analyzer.jpg"],
-    role: "Team project (3 members)",
-    duration: "4 months",
+      "An end-to-end pipeline that scans Google Drive (mounted via rclone), matches directories using regex, and extracts multi-job testing data from Excel files for lithium-ion cell testing teams. Eight job-specific processor functions parse the raw data, compute key parameters, and persist plot-ready data as Parquet files, with a five-state job tracker (Success, In Progress, Failed, Warning, Pending Retry) for full pipeline observability. Scaled to 10,000+ jobs by integrating Celery with Redis-backed queues for parallel worker execution across job types, cutting overall processing time by more than 75%. A React dashboard lets the testing team monitor job metrics and statuses, filterable by type, status, and date, in real time.",
+    tech: ["Django", "Celery", "Redis", "React.js"],
+    github: "",
+    liveLink: "",
+    images: ["/projects/CTP_1.png", "/projects/CTP_2.png", "/projects/CTP_3.png","/projects/CTP_4.png","/projects/CTP_5.png"],
+  },
+  {
+    id: "proj4",
+    title: "Coating Parameter Optimization using Machine Learning",
+    thumbnail: "/projects/coating-optimization.png",
+    shortDescription: "ML system that predicts optimal electrode-coating parameters to cut material wastage.",
+    fullDescription:
+      "A machine-learning optimization system that predicts optimal pump speed and gap height for electrode coating from slurry properties and target mass loading. Random Forest and XGBoost regression models were trained and compared, with XGBoost selected for its superior predictive accuracy and generalization. Pairing the trained model with Differential Evolution optimization minimized operator trial iterations, achieving nearly a 3x reduction in electrode wastage and meaningfully improving coating process efficiency.",
+    tech: ["Python", "Scikit-learn", "XGBoost", "Random Forest"],
+    github: "",
+    liveLink: "",
+    images: ["/projects/coating-optimization.png"],
+  },
+  {
+    id: "proj5",
+    title: "EduVerse — Full-Stack Digital Learning Platform",
+    thumbnail: "/projects/EduVerse_1.png",
+    shortDescription: "MERN-stack platform for structured video lectures with secure uploads and student discussions.",
+    fullDescription:
+      "A digital learning platform built around structured video lectures — supporting secure uploads, student discussions and subscriptions, and an ad-free, distraction-free viewing experience. The backend is a modular Express.js + MongoDB service with REST APIs, Mongoose models, Multer for video metadata handling, and JWT + Bcrypt authentication. The frontend is a responsive React/Redux app styled with Tailwind CSS for seamless state management across devices.",
+    tech: ["React.js", "Redux", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT"],
+    github: "https://github.com/ArunMeena-MCA/EduVerse",
+    liveLink: "https://eduverse-learn.vercel.app/",
+    images: ["/projects/EduVerse_1.png", "/projects/EduVerse_2.png", "/projects/EduVerse_3.png", "/projects/EduVerse_4.png", "/projects/EduVerse_5.png", "/projects/EduVerse_6.png", "/projects/EduVerse_7.png"],
+  },
+  {
+    id: "proj6",
+    title: "Campus Trade",
+    thumbnail: "/projects/CampusTrade_1.png",
+    shortDescription: "MERN platform for students to buy, sell, and exchange items on campus.",
+    fullDescription:
+      "A full-stack web platform for buying, selling, and exchanging used goods within a college campus. Features secure authentication for registration and login with personalized profiles and transaction history, real-time messaging between buyers and sellers, and search/filter by category, title, and description — all backed by REST APIs built with Node.js, Express.js, and MongoDB/Mongoose.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    github: "https://github.com/ArunMeena-MCA/Campus-Trade",
+    liveLink: "https://campustrade-frontend.onrender.com/",
+    images: ["/projects/CampusTrade_1.png", "/projects/CampusTrade_2.png", "/projects/CampusTrade_3.png", "/projects/CampusTrade_4.png", "/projects/CampusTrade_5.png", "/projects/CampusTrade_6.png"],
+  },
+  {
+    id: "proj7",
+    title: "Duplicate Question Detector",
+    thumbnail: "/projects/duplicate-question-detector.png",
+    shortDescription: "NLP system that detects duplicate question pairs using engineered similarity features.",
+    fullDescription:
+      "An NLP-based duplicate-question detection system built on the Quora Question Pairs dataset. Engineered 20+ linguistic and semantic features — token overlap, fuzzy string matching, longest common substring, and bag-of-words — to capture question-pair similarity, then trained and tuned Random Forest, XGBoost, and Logistic Regression models with RandomizedSearchCV, reaching 79% accuracy on unseen question pairs. Deployed on Render with a scalable data-processing and model-training pipeline.",
+    tech: ["Python", "Scikit-learn", "XGBoost", "NLP"],
+    github: "https://github.com/ArunMeena-MCA/Duplicate-Question-Detector",
+    liveLink: "",
+    images: ["/projects/duplicate-question-detector.png"],
+  },
+  {
+    id: "proj8",
+    title: "Forest Fire Prediction App",
+    thumbnail: "/projects/FFP_1.png",
+    shortDescription: "Full-stack ML app predicting the Fire Weather Index from meteorological data.",
+    fullDescription:
+      "A full-stack machine learning web app that predicts the Fire Weather Index (FWI) from meteorological data. Data was preprocessed and analyzed with NumPy and Pandas, and multiple regression algorithms (Linear, Ridge, Lasso, ElasticNet) were compared via cross-validation — Ridge Regression performed best at 98.26% accuracy and was integrated into the production pipeline. Deployed with a Flask backend (joblib-serialized model) on Render and a React frontend on Vercel.",
+    tech: ["Python", "NumPy", "Pandas", "Scikit-learn", "Flask", "React.js"],
+    github: "https://github.com/ArunMeena-MCA/Forest-Fire-Prediction-App",
+    liveLink: "https://algerian-fire-prediction-app.vercel.app/",
+    images: ["/projects/FFP_1.png"],
   },
 ];
+
+export const leetcode_manual_stats = {
+  totalSolved: 535, // TODO: fill in your real total from https://leetcode.com/u/Arun_Meena/
+  totalQuestions: 4000, // TODO: total questions available on LeetCode at time of update
+  ranking: null,
+  easy: { solved: 213, total: 1000 },
+  medium: { solved: 289, total: 2000 },
+  hard: { solved: 33, total: 1000 },
+};
+
+export const gfg_profile_url = "https://www.geeksforgeeks.org/profile/arunmee7ucl?tab=activity"; // TODO: your real GFG profile URL
+
+export const gfg_manual_stats = {
+  totalSolved: 155, // TODO: fill in your real total
+  codingScore: 504,
+  // instituteRank: 488,
+  // school: 0,
+  basic: 17,
+  easy: 45,
+  medium: 74,
+  hard: 19,
+};
 
 export const site_meta = {
   analyticsPasswordHint:

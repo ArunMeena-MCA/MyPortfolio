@@ -44,7 +44,7 @@ export default function Hero() {
           src={personal_details.avatar}
           alt={personal_details.name}
           onError={(e) => (e.target.style.display = "none")}
-          className="mb-6 h-28 w-28 animate-float rounded-full border-2 border-cyan-glow/40 object-cover shadow-glow"
+          className="mb-6 h-48 w-40 animate-float rounded-lg border-2 border-cyan-glow/50 object-cover shadow-glow"
         />
       )}
 

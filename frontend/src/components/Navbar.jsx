@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { personal_details } from "../config/data.js";
 
 const LINKS = [
+  { id: "coding", label: "Coding Profile" },
   { id: "resume", label: "Resume" },
   { id: "education", label: "Education" },
   { id: "experience", label: "Experience" },

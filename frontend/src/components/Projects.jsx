@@ -24,12 +24,12 @@ export default function Projects() {
             onClick={() => setActive(p)}
             className="glass group flex flex-col overflow-hidden rounded-xl text-left transition-shadow hover:shadow-glow"
           >
-            <div className="relative h-44 w-full overflow-hidden bg-panel">
+            <div className="relative h-52 w-full p-1 bg-panel">
               <img
                 src={p.thumbnail}
                 alt={p.title}
                 onError={(e) => (e.target.style.display = "none")}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-full w-full transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent" />
               <div className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-void/70 text-cyan-glow opacity-0 transition-opacity group-hover:opacity-100">

@@ -45,3 +45,6 @@ export const changeAnalyticsPassword = (currentPassword, newPassword) =>
   });
 
 export const resumeUrl = () => `${API_BASE}/resume`;
+
+export const fetchLeetCodeStats = () => request("/leetcode");
+export const fetchGfgStats = () => request("/gfg");
