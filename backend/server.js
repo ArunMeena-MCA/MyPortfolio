@@ -16,12 +16,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 
+// app.use(
+//   cors({
+//     origin: CLIENT_ORIGIN,
+//     credentials: true,
+//   })
+// );
+
+
 app.use(
   cors({
-    origin: CLIENT_ORIGIN,
+    origin: "https://my-portfolio-a-one.vercel.app",
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
