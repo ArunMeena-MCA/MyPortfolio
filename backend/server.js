@@ -26,7 +26,7 @@ const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 
 app.use(
   cors({
-    origin: "https://my-portfolio-a-one.vercel.app",
+    origin: "https://my-portfolio-a-one.vercel.app/",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
