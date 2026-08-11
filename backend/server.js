@@ -61,6 +61,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Portfolio backend running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Portfolio backend running on http://localhost:${PORT}`);
+// });
+
+module.exports = app;
