@@ -10,7 +10,6 @@ import Contact from "../components/Contact.jsx";
 import Footer from "../components/Footer.jsx";
 import VisitorIntroPopup from "../components/VisitorIntroPopup.jsx";
 import CodingProfile from "../components/CodingProfile.jsx";
-import GfgProfile from "../components/Gfgprofile.jsx";
 import { trackVisit } from "../utils/api.js";
 import { getVisitorKey } from "../utils/fingerprint.js";
 
@@ -27,7 +26,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <CodingProfile />
-      {/* <GfgProfile /> */}
       <ResumeSection />
       <Education />
       <Experience />
